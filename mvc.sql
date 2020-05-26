@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  mar. 26 mai 2020 à 11:01
+-- Généré le :  mar. 26 mai 2020 à 12:13
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.4.2
 
@@ -101,16 +101,11 @@ ALTER TABLE `tag`
 --
 
 --
--- Contraintes pour la table `article`
+-- Contraintes pour la table `link_article_tag`
 --
-ALTER TABLE `article`
-  ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`id`) REFERENCES `link_article_tag` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `tag`
---
-ALTER TABLE `tag`
-  ADD CONSTRAINT `tag_ibfk_1` FOREIGN KEY (`id`) REFERENCES `link_article_tag` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `link_article_tag`
+  ADD CONSTRAINT `link_article_tag_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `link_article_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
